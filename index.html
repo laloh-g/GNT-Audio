@@ -3,7 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GNT Audio - Servicio Técnico de Audio Profesional</title>
+    <title id="seo-title">GNT Audio - Servicio Técnico de Audio Profesional</title>
+    <meta name="description" content="Reparación y mantención de consolas, amplificadores, cajas activas y periféricos en el Valle del Colchagua." id="seo-description" />
+    
+    <!-- Open Graph / WhatsApp / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="GNT Audio - Servicio Técnico de Audio Profesional" id="og-title" />
+    <meta property="og:description" content="Reparación y mantención de consolas, amplificadores, cajas activas y periféricos en el Valle del Colchagua." id="og-description" />
+    <meta property="og:image" content="" id="og-image" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="GNT Audio - Servicio Técnico de Audio Profesional" id="twitter-title" />
+    <meta name="twitter:description" content="Reparación y mantención de consolas, amplificadores, cajas activas y periféricos en el Valle del Colchagua." id="twitter-description" />
+    <meta name="twitter:image" content="" id="twitter-image" />
+
+    <!-- Favicon Link -->
+    <link rel="icon" href="favicon.ico" id="favicon-link" />
     
     <!-- Google Fonts Connection (Preconnect) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -58,6 +74,12 @@
         /* Promo Bar Color Defaults */
         --gnt-promo-bg: #CCFF00;
         --gnt-promo-text: #000000;
+
+        /* Navbar Dynamics */
+        --gnt-logo-height: 44px;
+        --gnt-nav-bg-light: #FAF9F6D9;
+        --gnt-nav-bg-dark: #0B0B0CD9;
+        --gnt-nav-opacity: 0.85;
       }
 
       /* Apply variables */
@@ -89,6 +111,12 @@
       .dark .gnt-card {
         background-color: var(--gnt-card-bg-dark);
         border-color: var(--gnt-card-border-dark);
+      }
+      #gnt-nav-bar {
+        background-color: var(--gnt-nav-bg-light) !important;
+      }
+      .dark #gnt-nav-bar {
+        background-color: var(--gnt-nav-bg-dark) !important;
       }
       .gnt-accent-bg {
         background-color: var(--gnt-accent);
@@ -152,12 +180,12 @@
     </div>
 
     <!-- 1. NAVBAR (Fijo arriba) -->
-    <nav class="sticky top-0 w-full z-40 transition-all duration-300 border-b border-gray-200/40 dark:border-neutral-900/40 bg-opacity-85 dark:bg-opacity-85 backdrop-blur-md" style="background-color: var(--gnt-bg-light); border-bottom-color: var(--gnt-card-border-light);" id="gnt-nav-bar">
-      <div class="max-w-7xl mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
+    <nav class="sticky top-0 w-full z-40 transition-all duration-300 border-b border-gray-200/40 dark:border-neutral-900/40 backdrop-blur-md" style="border-bottom-color: var(--gnt-card-border-light);" id="gnt-nav-bar">
+      <div id="gnt-nav-wrapper" class="max-w-7xl mx-auto px-6 md:px-12 h-20 flex items-center justify-between transition-all duration-300">
         <!-- Logo group -->
         <a href="#" class="flex items-center gap-3 group relative z-10">
-          <img src="logo-claro.png" alt="GNT AUDIO Logo" class="h-10 md:h-12 w-auto transition-all duration-300 transform group-hover:scale-[1.02] dark:hidden" />
-          <img src="logo-oscuro.png" alt="GNT AUDIO Logo" class="h-10 md:h-12 w-auto transition-all duration-300 transform group-hover:scale-[1.02] hidden dark:block" />
+          <img src="logo-claro.png" alt="GNT AUDIO Logo" id="logo-claro-nav" class="w-auto transition-all duration-300 transform group-hover:scale-[1.02] dark:hidden" style="height: var(--gnt-logo-height, 44px);" />
+          <img src="logo-oscuro.png" alt="GNT AUDIO Logo" id="logo-oscuro-nav" class="w-auto transition-all duration-300 transform group-hover:scale-[1.02] hidden dark:block" style="height: var(--gnt-logo-height, 44px);" />
         </a>
 
         <!-- Controls (Theme Toggle & WhatsApp link) -->
@@ -410,8 +438,8 @@
       <div class="max-w-7xl mx-auto px-6 flex flex-col items-center text-center gap-8">
         <!-- Footer logo -->
         <a href="#" class="flex items-center gap-3">
-          <img src="logo-claro.png" alt="GNT AUDIO Footer Logo" class="h-12 w-auto dark:hidden" />
-          <img src="logo-oscuro.png" alt="GNT AUDIO Footer Logo" class="h-12 w-auto hidden dark:block" />
+          <img src="logo-claro.png" alt="GNT AUDIO Footer Logo" id="logo-claro-footer" class="w-auto dark:hidden" style="height: var(--gnt-logo-height, 44px);" />
+          <img src="logo-oscuro.png" alt="GNT AUDIO Footer Logo" id="logo-oscuro-footer" class="w-auto hidden dark:block" style="height: var(--gnt-logo-height, 44px);" />
         </a>
         
         <!-- Address & Details -->
@@ -422,6 +450,22 @@
           <p class="text-xs gnt-text-muted max-w-md mx-auto leading-relaxed" data-cms="footer-details">
             Servicio técnico especialista en electrónica análoga y digital. Restauración de equipamiento de audio profesional para directo y estudio.
           </p>
+        </div>
+
+        <!-- Social Media Links (Editable and toggled) -->
+        <div class="flex items-center gap-6 mt-2 hidden" id="gnt-social-container">
+          <a href="https://instagram.com/gntaudio" target="_blank" id="gnt-social-instagram" class="text-neutral-500 hover:text-neutral-950 dark:text-neutral-400 dark:hover:text-neon transition-all duration-300" title="Instagram">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </a>
+          <a href="https://facebook.com/gntaudio" target="_blank" id="gnt-social-facebook" class="text-neutral-500 hover:text-neutral-950 dark:text-neutral-400 dark:hover:text-neon transition-all duration-300" title="Facebook">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+            </svg>
+          </a>
         </div>
 
         <!-- Rights -->
@@ -538,6 +582,171 @@
           </div>
         </div>
 
+        <!-- Section: Controles del Navbar -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-semibold uppercase tracking-wider text-neutral-400 border-b border-neutral-800 pb-1.5">Controles del Navbar</h4>
+          
+          <!-- Logo Height Slider -->
+          <div>
+            <div class="flex justify-between items-center mb-1">
+              <label class="block text-[11px] text-neutral-400">Tamaño del Logo (Alto)</label>
+              <span id="label-logo-height" class="text-[10px] font-mono text-neutral-400">44px</span>
+            </div>
+            <input type="range" id="input-logo-height" min="20" max="80" value="44" class="w-full accent-yellow-400 cursor-pointer" />
+          </div>
+
+          <!-- Logo Position Select -->
+          <div>
+            <label class="block text-[11px] text-neutral-400 mb-1">Posición del Logo</label>
+            <select id="input-logo-position" class="w-full px-3 py-2 text-xs rounded bg-neutral-900 border border-neutral-800 focus:outline-none focus:border-yellow-400 text-white cursor-pointer">
+              <option value="left">Izquierda (Predeterminado)</option>
+              <option value="center">Centro (Centrado)</option>
+            </select>
+          </div>
+
+          <!-- Navbar Background Color (Light Mode) -->
+          <div>
+            <label class="block text-[11px] text-neutral-400 mb-1">Fondo Navbar (Modo Claro)</label>
+            <div class="flex items-center gap-1.5">
+              <input type="color" id="input-nav-bg-light" value="#FAF9F6" class="w-8 h-8 rounded border-0 cursor-pointer bg-transparent" />
+              <span id="label-nav-bg-light" class="text-[10px] font-mono text-neutral-300">#FAF9F6</span>
+            </div>
+          </div>
+
+          <!-- Navbar Background Color (Dark Mode) -->
+          <div>
+            <label class="block text-[11px] text-neutral-400 mb-1">Fondo Navbar (Modo Oscuro)</label>
+            <div class="flex items-center gap-1.5">
+              <input type="color" id="input-nav-bg-dark" value="#0B0B0C" class="w-8 h-8 rounded border-0 cursor-pointer bg-transparent" />
+              <span id="label-nav-bg-dark" class="text-[10px] font-mono text-neutral-300">#0B0B0C</span>
+            </div>
+          </div>
+
+          <!-- Navbar Transparency Slider -->
+          <div>
+            <div class="flex justify-between items-center mb-1">
+              <label class="block text-[11px] text-neutral-400">Transparencia del Navbar</label>
+              <span id="label-nav-opacity" class="text-[10px] font-mono text-neutral-400">0.85</span>
+            </div>
+            <input type="range" id="input-nav-opacity" min="0" max="1" step="0.05" value="0.85" class="w-full accent-yellow-400 cursor-pointer" />
+          </div>
+        </div>
+
+        <!-- Section: Imágenes (Drag & Drop Base64) -->
+        <div class="space-y-4">
+          <h4 class="text-xs font-semibold uppercase tracking-wider text-neutral-400 border-b border-neutral-800 pb-1.5">Imágenes (Drag & Drop Base64)</h4>
+          
+          <!-- Dropzone: Logo Claro -->
+          <div class="space-y-1">
+            <label class="block text-[11px] text-neutral-400">Logo Claro (Para fondo claro)</label>
+            <div id="dropzone-logo-claro" class="border-2 border-dashed border-neutral-800 hover:border-yellow-400/60 rounded-xl p-3 text-center cursor-pointer transition-all duration-200 bg-neutral-900/40 hover:bg-neutral-900/80 group relative">
+              <input type="file" id="file-logo-claro" class="hidden" accept="image/*" />
+              <div class="flex flex-col items-center gap-1 pointer-events-none">
+                <svg class="w-5 h-5 text-neutral-500 group-hover:text-yellow-400 transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z"></path>
+                </svg>
+                <span class="text-[10px] text-neutral-400 group-hover:text-neutral-200 font-medium">Arrastra o haz clic</span>
+              </div>
+              <div id="preview-logo-claro" class="absolute inset-0 bg-neutral-950 rounded-xl flex items-center justify-center p-1.5 hidden">
+                <img src="" class="max-h-full max-w-full object-contain rounded" />
+                <button onclick="clearDropzone(event, 'logo-claro')" class="absolute top-1 right-1 bg-red-600/90 hover:bg-red-500 text-white rounded-full p-1 shadow-md transition-colors" title="Eliminar">
+                  <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dropzone: Logo Oscuro -->
+          <div class="space-y-1">
+            <label class="block text-[11px] text-neutral-400">Logo Oscuro (Para fondo oscuro)</label>
+            <div id="dropzone-logo-oscuro" class="border-2 border-dashed border-neutral-800 hover:border-yellow-400/60 rounded-xl p-3 text-center cursor-pointer transition-all duration-200 bg-neutral-900/40 hover:bg-neutral-900/80 group relative">
+              <input type="file" id="file-logo-oscuro" class="hidden" accept="image/*" />
+              <div class="flex flex-col items-center gap-1 pointer-events-none">
+                <svg class="w-5 h-5 text-neutral-500 group-hover:text-yellow-400 transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z"></path>
+                </svg>
+                <span class="text-[10px] text-neutral-400 group-hover:text-neutral-200 font-medium">Arrastra o haz clic</span>
+              </div>
+              <div id="preview-logo-oscuro" class="absolute inset-0 bg-neutral-950 rounded-xl flex items-center justify-center p-1.5 hidden">
+                <img src="" class="max-h-full max-w-full object-contain rounded" />
+                <button onclick="clearDropzone(event, 'logo-oscuro')" class="absolute top-1 right-1 bg-red-600/90 hover:bg-red-500 text-white rounded-full p-1 shadow-md transition-colors" title="Eliminar">
+                  <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dropzone: Imagen de Fondo -->
+          <div class="space-y-1">
+            <label class="block text-[11px] text-neutral-400">Imagen de Fondo de la Web</label>
+            <div id="dropzone-bg-image" class="border-2 border-dashed border-neutral-800 hover:border-yellow-400/60 rounded-xl p-3 text-center cursor-pointer transition-all duration-200 bg-neutral-900/40 hover:bg-neutral-900/80 group relative">
+              <input type="file" id="file-bg-image" class="hidden" accept="image/*" />
+              <div class="flex flex-col items-center gap-1 pointer-events-none">
+                <svg class="w-5 h-5 text-neutral-500 group-hover:text-yellow-400 transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z"></path>
+                </svg>
+                <span class="text-[10px] text-neutral-400 group-hover:text-neutral-200 font-medium">Arrastra o haz clic</span>
+              </div>
+              <div id="preview-bg-image" class="absolute inset-0 bg-neutral-950 rounded-xl flex items-center justify-center p-1.5 hidden">
+                <img src="" class="max-h-full max-w-full object-contain rounded" />
+                <button onclick="clearDropzone(event, 'bg-image')" class="absolute top-1 right-1 bg-red-600/90 hover:bg-red-500 text-white rounded-full p-1 shadow-md transition-colors" title="Eliminar">
+                  <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dropzone: Imagen de Vista Previa (SEO) -->
+          <div class="space-y-1">
+            <label class="block text-[11px] text-neutral-400">Imagen Vista Previa SEO (Compartir)</label>
+            <div id="dropzone-seo-image" class="border-2 border-dashed border-neutral-800 hover:border-yellow-400/60 rounded-xl p-3 text-center cursor-pointer transition-all duration-200 bg-neutral-900/40 hover:bg-neutral-900/80 group relative">
+              <input type="file" id="file-seo-image" class="hidden" accept="image/*" />
+              <div class="flex flex-col items-center gap-1 pointer-events-none">
+                <svg class="w-5 h-5 text-neutral-500 group-hover:text-yellow-400 transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z"></path>
+                </svg>
+                <span class="text-[10px] text-neutral-400 group-hover:text-neutral-200 font-medium">Arrastra o haz clic</span>
+              </div>
+              <div id="preview-seo-image" class="absolute inset-0 bg-neutral-950 rounded-xl flex items-center justify-center p-1.5 hidden">
+                <img src="" class="max-h-full max-w-full object-contain rounded" />
+                <button onclick="clearDropzone(event, 'seo-image')" class="absolute top-1 right-1 bg-red-600/90 hover:bg-red-500 text-white rounded-full p-1 shadow-md transition-colors" title="Eliminar">
+                  <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dropzone: Favicon -->
+          <div class="space-y-1">
+            <label class="block text-[11px] text-neutral-400">Favicon (Icono Pestaña)</label>
+            <div id="dropzone-favicon" class="border-2 border-dashed border-neutral-800 hover:border-yellow-400/60 rounded-xl p-3 text-center cursor-pointer transition-all duration-200 bg-neutral-900/40 hover:bg-neutral-900/80 group relative">
+              <input type="file" id="file-favicon" class="hidden" accept="image/*" />
+              <div class="flex flex-col items-center gap-1 pointer-events-none">
+                <svg class="w-5 h-5 text-neutral-500 group-hover:text-yellow-400 transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z"></path>
+                </svg>
+                <span class="text-[10px] text-neutral-400 group-hover:text-neutral-200 font-medium">Arrastra o haz clic</span>
+              </div>
+              <div id="preview-favicon" class="absolute inset-0 bg-neutral-950 rounded-xl flex items-center justify-center p-1.5 hidden">
+                <img src="" class="max-h-full max-w-full object-contain rounded" />
+                <button onclick="clearDropzone(event, 'favicon')" class="absolute top-1 right-1 bg-red-600/90 hover:bg-red-500 text-white rounded-full p-1 shadow-md transition-colors" title="Eliminar">
+                  <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- Section: Typography (Google Fonts) -->
         <div class="space-y-3">
           <h4 class="text-xs font-semibold uppercase tracking-wider text-neutral-400 border-b border-neutral-800 pb-1.5">Tipografía Dinámica</h4>
@@ -595,6 +804,32 @@
           </div>
         </div>
 
+        <!-- Section: SEO & Vista Previa -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-semibold uppercase tracking-wider text-neutral-400 border-b border-neutral-800 pb-1.5">SEO & Vista Previa (WhatsApp)</h4>
+          <div>
+            <label class="block text-[11px] text-neutral-400 mb-1">Meta Título de la Web</label>
+            <input type="text" id="input-seo-title" placeholder="GNT Audio - Servicio Técnico de Audio Profesional" class="w-full px-3 py-2 text-xs rounded bg-neutral-900 border border-neutral-800 focus:outline-none focus:border-yellow-400 text-white" />
+          </div>
+          <div>
+            <label class="block text-[11px] text-neutral-400 mb-1">Meta Descripción</label>
+            <textarea id="input-seo-desc" rows="3" placeholder="Reparación y mantención de consolas, amplificadores..." class="w-full px-3 py-2 text-xs rounded bg-neutral-900 border border-neutral-800 focus:outline-none focus:border-yellow-400 text-white resize-none"></textarea>
+          </div>
+        </div>
+
+        <!-- Section: Redes Sociales -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-semibold uppercase tracking-wider text-neutral-400 border-b border-neutral-800 pb-1.5">Redes Sociales</h4>
+          <div>
+            <label class="block text-[11px] text-neutral-400 mb-1">Instagram Link (Vacío para ocultar)</label>
+            <input type="text" id="input-social-instagram" placeholder="https://instagram.com/gntaudio" class="w-full px-3 py-2 text-xs rounded bg-neutral-900 border border-neutral-800 focus:outline-none focus:border-yellow-400 text-white" />
+          </div>
+          <div>
+            <label class="block text-[11px] text-neutral-400 mb-1">Facebook Link (Vacío para ocultar)</label>
+            <input type="text" id="input-social-facebook" placeholder="https://facebook.com/gntaudio" class="w-full px-3 py-2 text-xs rounded bg-neutral-900 border border-neutral-800 focus:outline-none focus:border-yellow-400 text-white" />
+          </div>
+        </div>
+
         <!-- Section: WhatsApp Integration Settings -->
         <div class="space-y-3">
           <h4 class="text-xs font-semibold uppercase tracking-wider text-neutral-400 border-b border-neutral-800 pb-1.5">Configuración de WhatsApp</h4>
@@ -637,6 +872,9 @@
           document.documentElement.classList.add('dark');
         }
         updateThemeToggleIcons();
+
+        // Load custom styles/settings from localStorage if present
+        loadPersistedCustomizations();
 
         // Check for Admin mode hash
         checkAdminHash();
@@ -726,9 +964,70 @@
         });
       }
 
-      // 5. Sync Admin Inputs with Current Custom CSS variables
+      // 5. Load persisted customizations from localStorage
+      function loadPersistedCustomizations() {
+        const root = document.documentElement;
+
+        // Logo height
+        const savedHeight = localStorage.getItem('gnt-logo-height');
+        if (savedHeight) {
+          root.style.setProperty('--gnt-logo-height', savedHeight);
+        }
+
+        // Logo position
+        const savedPos = localStorage.getItem('gnt-logo-position');
+        if (savedPos) {
+          updateLogoPositionClasses(savedPos);
+        }
+
+        // Navbar backgrounds & opacity
+        const savedNavLight = localStorage.getItem('gnt-nav-bg-light-hex');
+        const savedNavDark = localStorage.getItem('gnt-nav-bg-dark-hex');
+        const savedNavOpacity = localStorage.getItem('gnt-nav-opacity');
+        if (savedNavLight && savedNavOpacity) {
+          root.style.setProperty('--gnt-nav-bg-light', hexToRgba(savedNavLight, savedNavOpacity));
+        }
+        if (savedNavDark && savedNavOpacity) {
+          root.style.setProperty('--gnt-nav-bg-dark', hexToRgba(savedNavDark, savedNavOpacity));
+        }
+        if (savedNavOpacity) {
+          root.style.setProperty('--gnt-nav-opacity', savedNavOpacity);
+        }
+
+        // SEO text tags
+        const savedSeoTitle = localStorage.getItem('gnt-seo-title');
+        if (savedSeoTitle) {
+          updateSEOTitle(savedSeoTitle);
+        }
+        const savedSeoDesc = localStorage.getItem('gnt-seo-desc');
+        if (savedSeoDesc) {
+          updateSEODesc(savedSeoDesc);
+        }
+
+        // Social links
+        const savedInsta = localStorage.getItem('gnt-social-instagram');
+        if (savedInsta !== null) {
+          updateSocialMedia('instagram', savedInsta);
+        }
+        const savedFb = localStorage.getItem('gnt-social-facebook');
+        if (savedFb !== null) {
+          updateSocialMedia('facebook', savedFb);
+        }
+
+        // Base64 Images
+        const imgKeys = ['logo-claro', 'logo-oscuro', 'bg-image', 'seo-image', 'favicon'];
+        imgKeys.forEach(id => {
+          const base64 = localStorage.getItem(`gnt-img-${id}`);
+          if (base64) {
+            updateImageState(id, base64);
+          }
+        });
+      }
+
+      // 6. Sync Admin Inputs with Current Custom CSS variables
       function syncAdminPanelInputs() {
         const style = getComputedStyle(document.documentElement);
+        const root = document.documentElement;
         
         // Colors
         setInputValue('input-bg-light', '--gnt-bg-light', style);
@@ -741,10 +1040,80 @@
         setInputValue('input-accent-hover', '--gnt-accent-hover', style);
         setInputValue('input-accent-text', '--gnt-accent-text', style);
 
-        // Background Image URL and Opacity
+        // Navbar size slider
+        const logoHeightInput = document.getElementById('input-logo-height');
+        const logoHeightLabel = document.getElementById('label-logo-height');
+        const currentLogoHeight = style.getPropertyValue('--gnt-logo-height').trim() || '44px';
+        if (logoHeightInput) logoHeightInput.value = parseInt(currentLogoHeight, 10);
+        if (logoHeightLabel) logoHeightLabel.textContent = currentLogoHeight;
+
+        // Navbar position select
+        const logoPosSelect = document.getElementById('input-logo-position');
+        if (logoPosSelect) {
+          logoPosSelect.value = localStorage.getItem('gnt-logo-position') || 'left';
+        }
+
+        // Navbar background colors
+        const bgLightVal = localStorage.getItem('gnt-nav-bg-light-hex') || '#FAF9F6';
+        const bgDarkVal = localStorage.getItem('gnt-nav-bg-dark-hex') || '#0B0B0C';
+        const navOpacityVal = localStorage.getItem('gnt-nav-opacity') || '0.85';
+
+        const navBgLightInput = document.getElementById('input-nav-bg-light');
+        const navBgLightLabel = document.getElementById('label-nav-bg-light');
+        if (navBgLightInput) navBgLightInput.value = bgLightVal;
+        if (navBgLightLabel) navBgLightLabel.textContent = bgLightVal.toUpperCase();
+
+        const navBgDarkInput = document.getElementById('input-nav-bg-dark');
+        const navBgDarkLabel = document.getElementById('label-nav-bg-dark');
+        if (navBgDarkInput) navBgDarkInput.value = bgDarkVal;
+        if (navBgDarkLabel) navBgDarkLabel.textContent = bgDarkVal.toUpperCase();
+
+        const navOpacityInput = document.getElementById('input-nav-opacity');
+        const navOpacityLabel = document.getElementById('label-nav-opacity');
+        if (navOpacityInput) navOpacityInput.value = navOpacityVal;
+        if (navOpacityLabel) navOpacityLabel.textContent = navOpacityVal;
+
+        // SEO meta title and description
+        const seoTitleInput = document.getElementById('input-seo-title');
+        const seoTitleEl = document.getElementById('seo-title');
+        if (seoTitleInput && seoTitleEl) {
+          seoTitleInput.value = seoTitleEl.textContent;
+        }
+
+        const seoDescInput = document.getElementById('input-seo-desc');
+        const seoDescEl = document.getElementById('seo-description');
+        if (seoDescInput && seoDescEl) {
+          seoDescInput.value = seoDescEl.getAttribute('content') || '';
+        }
+
+        // Social Networks
+        const socialInstaInput = document.getElementById('input-social-instagram');
+        if (socialInstaInput) {
+          socialInstaInput.value = localStorage.getItem('gnt-social-instagram') || '';
+        }
+        const socialFbInput = document.getElementById('input-social-facebook');
+        if (socialFbInput) {
+          socialFbInput.value = localStorage.getItem('gnt-social-facebook') || '';
+        }
+
+        // Populate Image Dropzone Previews
+        const imgKeys = ['logo-claro', 'logo-oscuro', 'bg-image', 'seo-image', 'favicon'];
+        imgKeys.forEach(id => {
+          const base64 = localStorage.getItem(`gnt-img-${id}`);
+          const preview = document.getElementById(`preview-${id}`);
+          if (base64 && preview) {
+            preview.classList.remove('hidden');
+            const img = preview.querySelector('img');
+            if (img) img.src = base64;
+          } else if (preview) {
+            preview.classList.add('hidden');
+          }
+        });
+
+        // Background Image URL input
         const bgImgVar = style.getPropertyValue('--gnt-bg-image').trim();
         const inputBgImgUrl = document.getElementById('input-bg-image-url');
-        if (bgImgVar && bgImgVar !== 'none') {
+        if (bgImgVar && bgImgVar !== 'none' && !bgImgVar.startsWith('url("data:')) {
           const match = bgImgVar.match(/url\(['"]?([^'"]+)['"]?\)/);
           if (match && inputBgImgUrl) {
             inputBgImgUrl.value = match[1];
@@ -761,7 +1130,7 @@
           labelOpacity.textContent = opacityVar;
         }
 
-        // Font
+        // Font name
         const fontVar = style.getPropertyValue('--gnt-font-family').trim();
         const inputFont = document.getElementById('input-font-name');
         if (inputFont) {
@@ -778,7 +1147,7 @@
         setInputValue('input-promo-bg', '--gnt-promo-bg', style);
         setInputValue('input-promo-text', '--gnt-promo-text', style);
 
-        // WhatsApp number & Template settings
+        // WhatsApp settings
         const waNumInput = document.getElementById('input-wa-number');
         const waTemplateInput = document.getElementById('input-wa-template');
         if (waNumInput) {
@@ -788,7 +1157,12 @@
           waTemplateInput.value = document.body.dataset.whatsappTemplate || '';
         }
 
-        // Setup real-time event listeners for panel controls
+        // Initialize drag & drop zones
+        imgKeys.forEach(id => {
+          initDropzone(id);
+        });
+
+        // Setup event listeners for realtime tweaks
         setupRealTimeListeners();
       }
 
@@ -797,8 +1171,6 @@
         const label = document.getElementById(inputId.replace('input', 'label'));
         if (input) {
           let val = computedStyle.getPropertyValue(variableName).trim();
-          // Normalize Hex short format if needed, but computedStyle usually outputs hex or rgb.
-          // Let's ensure it is hex for the color input.
           if (val.startsWith('rgb')) {
             val = rgbToHex(val);
           }
@@ -809,7 +1181,6 @@
         }
       }
 
-      // Helper to convert rgb(r, g, b) into hex format for standard color input elements
       function rgbToHex(rgbStr) {
         const parts = rgbStr.match(/\d+/g);
         if (parts && parts.length >= 3) {
@@ -821,11 +1192,145 @@
         return "#000000";
       }
 
-      // 6. Real-time updates as user tweaks values
+      // Drag & Drop engine using FileReader
+      function initDropzone(id) {
+        const dropzone = document.getElementById(`dropzone-${id}`);
+        const fileInput = document.getElementById(`file-${id}`);
+        
+        if (!dropzone || !fileInput) return;
+        
+        // Remove existing listener duplicates
+        const newDropzone = dropzone.cloneNode(true);
+        dropzone.parentNode.replaceChild(newDropzone, dropzone);
+        
+        const newFileInput = fileInput.cloneNode(true);
+        fileInput.parentNode.replaceChild(newFileInput, fileInput);
+
+        newDropzone.addEventListener('click', (e) => {
+          if (e.target.tagName !== 'BUTTON' && !e.target.closest('button')) {
+            newFileInput.click();
+          }
+        });
+
+        newDropzone.addEventListener('dragover', (e) => {
+          e.preventDefault();
+          newDropzone.classList.add('border-yellow-400', 'bg-neutral-900/90');
+        });
+
+        newDropzone.addEventListener('dragleave', () => {
+          newDropzone.classList.remove('border-yellow-400', 'bg-neutral-900/90');
+        });
+
+        newDropzone.addEventListener('drop', (e) => {
+          e.preventDefault();
+          newDropzone.classList.remove('border-yellow-400', 'bg-neutral-900/90');
+          if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+            handleUploadedFile(e.dataTransfer.files[0]);
+          }
+        });
+
+        newFileInput.addEventListener('change', (e) => {
+          if (e.target.files && e.target.files[0]) {
+            handleUploadedFile(e.target.files[0]);
+          }
+        });
+
+        function handleUploadedFile(file) {
+          if (!file.type.startsWith('image/')) {
+            alert('Por favor, selecciona una imagen válida.');
+            return;
+          }
+          const reader = new FileReader();
+          reader.onload = (event) => {
+            const base64 = event.target.result;
+            updateImageState(id, base64);
+          };
+          reader.readAsDataURL(file);
+        }
+      }
+
+      function updateImageState(id, base64) {
+        localStorage.setItem(`gnt-img-${id}`, base64);
+        
+        const preview = document.getElementById(`preview-${id}`);
+        if (preview) {
+          preview.classList.remove('hidden');
+          const img = preview.querySelector('img');
+          if (img) img.src = base64;
+        }
+
+        // Apply changes to layout elements in real-time
+        if (id === 'logo-claro') {
+          const navLogo = document.getElementById('logo-claro-nav');
+          const footerLogo = document.getElementById('logo-claro-footer');
+          if (navLogo) navLogo.src = base64;
+          if (footerLogo) footerLogo.src = base64;
+        } else if (id === 'logo-oscuro') {
+          const navLogo = document.getElementById('logo-oscuro-nav');
+          const footerLogo = document.getElementById('logo-oscuro-footer');
+          if (navLogo) navLogo.src = base64;
+          if (footerLogo) footerLogo.src = base64;
+        } else if (id === 'bg-image') {
+          document.documentElement.style.setProperty('--gnt-bg-image', `url('${base64}')`);
+          const urlInput = document.getElementById('input-bg-image-url');
+          if (urlInput) urlInput.value = '';
+        } else if (id === 'seo-image') {
+          const ogImg = document.getElementById('og-image');
+          const twImg = document.getElementById('twitter-image');
+          if (ogImg) ogImg.setAttribute('content', base64);
+          if (twImg) twImg.setAttribute('content', base64);
+        } else if (id === 'favicon') {
+          const favLink = document.getElementById('favicon-link');
+          if (favLink) favLink.setAttribute('href', base64);
+        }
+      }
+
+      function clearDropzone(event, id) {
+        if (event) {
+          event.stopPropagation();
+          event.preventDefault();
+        }
+        
+        localStorage.removeItem(`gnt-img-${id}`);
+        
+        const preview = document.getElementById(`preview-${id}`);
+        if (preview) {
+          preview.classList.add('hidden');
+          const img = preview.querySelector('img');
+          if (img) img.src = '';
+        }
+        
+        const fileInput = document.getElementById(`file-${id}`);
+        if (fileInput) fileInput.value = '';
+        
+        if (id === 'logo-claro') {
+          const navLogo = document.getElementById('logo-claro-nav');
+          const footerLogo = document.getElementById('logo-claro-footer');
+          if (navLogo) navLogo.src = 'logo-claro.png';
+          if (footerLogo) footerLogo.src = 'logo-claro.png';
+        } else if (id === 'logo-oscuro') {
+          const navLogo = document.getElementById('logo-oscuro-nav');
+          const footerLogo = document.getElementById('logo-oscuro-footer');
+          if (navLogo) navLogo.src = 'logo-oscuro.png';
+          if (footerLogo) footerLogo.src = 'logo-oscuro.png';
+        } else if (id === 'bg-image') {
+          document.documentElement.style.setProperty('--gnt-bg-image', 'none');
+        } else if (id === 'seo-image') {
+          const ogImg = document.getElementById('og-image');
+          const twImg = document.getElementById('twitter-image');
+          if (ogImg) ogImg.setAttribute('content', '');
+          if (twImg) twImg.setAttribute('content', '');
+        } else if (id === 'favicon') {
+          const favLink = document.getElementById('favicon-link');
+          if (favLink) favLink.setAttribute('href', 'favicon.ico');
+        }
+      }
+
+      // 7. Real-time updates as user tweaks values
       function setupRealTimeListeners() {
         const root = document.documentElement;
         
-        // Dynamic Variable Bindings
+        // Colors mapping
         const colorMappings = {
           'input-bg-light': '--gnt-bg-light',
           'input-bg-dark': '--gnt-bg-dark',
@@ -850,16 +1355,96 @@
               if (label) {
                 label.textContent = hexVal.toUpperCase();
               }
+              // If background colors change, update navbar colors automatically to stay in sync
+              if (id === 'input-bg-light' || id === 'input-bg-dark') {
+                updateNavbarColors();
+              }
             });
           }
         });
 
-        // Background Image Realtime Bindings
+        // Navbar logo size slider
+        const logoHeightInput = document.getElementById('input-logo-height');
+        const logoHeightLabel = document.getElementById('label-logo-height');
+        if (logoHeightInput && logoHeightLabel) {
+          logoHeightInput.addEventListener('input', (e) => {
+            const val = e.target.value + 'px';
+            root.style.setProperty('--gnt-logo-height', val);
+            logoHeightLabel.textContent = val;
+            localStorage.setItem('gnt-logo-height', val);
+          });
+        }
+
+        // Navbar position selection
+        const logoPosInput = document.getElementById('input-logo-position');
+        if (logoPosInput) {
+          logoPosInput.addEventListener('change', (e) => {
+            const val = e.target.value;
+            updateLogoPositionClasses(val);
+            localStorage.setItem('gnt-logo-position', val);
+          });
+        }
+
+        // Navbar custom backgrounds
+        const navBgLightInput = document.getElementById('input-nav-bg-light');
+        if (navBgLightInput) {
+          navBgLightInput.addEventListener('input', () => updateNavbarColors());
+        }
+        const navBgDarkInput = document.getElementById('input-nav-bg-dark');
+        if (navBgDarkInput) {
+          navBgDarkInput.addEventListener('input', () => updateNavbarColors());
+        }
+        const navOpacityInput = document.getElementById('input-nav-opacity');
+        if (navOpacityInput) {
+          navOpacityInput.addEventListener('input', () => updateNavbarColors());
+        }
+
+        // SEO Realtime inputs
+        const seoTitleInput = document.getElementById('input-seo-title');
+        if (seoTitleInput) {
+          seoTitleInput.addEventListener('input', (e) => {
+            const val = e.target.value.trim();
+            updateSEOTitle(val);
+            localStorage.setItem('gnt-seo-title', val);
+          });
+        }
+        const seoDescInput = document.getElementById('input-seo-desc');
+        if (seoDescInput) {
+          seoDescInput.addEventListener('input', (e) => {
+            const val = e.target.value.trim();
+            updateSEODesc(val);
+            localStorage.setItem('gnt-seo-desc', val);
+          });
+        }
+
+        // Social links
+        const socialInstaInput = document.getElementById('input-social-instagram');
+        if (socialInstaInput) {
+          socialInstaInput.addEventListener('input', (e) => {
+            const val = e.target.value.trim();
+            updateSocialMedia('instagram', val);
+            localStorage.setItem('gnt-social-instagram', val);
+          });
+        }
+        const socialFbInput = document.getElementById('input-social-facebook');
+        if (socialFbInput) {
+          socialFbInput.addEventListener('input', (e) => {
+            const val = e.target.value.trim();
+            updateSocialMedia('facebook', val);
+            localStorage.setItem('gnt-social-facebook', val);
+          });
+        }
+
+        // Background Image Realtime url input
         const bgImgUrlInput = document.getElementById('input-bg-image-url');
         if (bgImgUrlInput) {
           bgImgUrlInput.addEventListener('input', (e) => {
             const url = e.target.value.trim();
             root.style.setProperty('--gnt-bg-image', url ? `url('${url}')` : 'none');
+            // Remove local uploaded bg image if user writes a URL
+            localStorage.removeItem('gnt-img-bg-image');
+            const preview = document.getElementById('preview-bg-image');
+            if (preview) preview.classList.add('hidden');
           });
         }
 
@@ -873,7 +1458,7 @@
           });
         }
 
-        // Promo toggle checkbox listener
+        // Promo toggle
         const promoToggle = document.getElementById('input-promo-toggle');
         const promoBar = document.getElementById('gnt-promo-bar');
         if (promoToggle && promoBar) {
@@ -882,14 +1467,13 @@
           });
         }
 
-        // WhatsApp controls listener
+        // WhatsApp controls
         const waNumInput = document.getElementById('input-wa-number');
         if (waNumInput) {
           waNumInput.addEventListener('input', (e) => {
             document.body.dataset.whatsappNumber = e.target.value.trim();
           });
         }
-
         const waTemplateInput = document.getElementById('input-wa-template');
         if (waTemplateInput) {
           waTemplateInput.addEventListener('input', (e) => {
@@ -898,7 +1482,90 @@
         }
       }
 
-      // 7. Dynamic Google Font Injection
+      // Real-time helper utilities
+      function updateLogoPositionClasses(val) {
+        const wrapper = document.getElementById('gnt-nav-wrapper');
+        if (!wrapper) return;
+        if (val === 'center') {
+          wrapper.className = "max-w-7xl mx-auto px-6 md:px-12 h-auto py-4 flex flex-col sm:flex-row items-center justify-between gap-4 transition-all duration-300";
+        } else {
+          wrapper.className = "max-w-7xl mx-auto px-6 md:px-12 h-20 flex items-center justify-between transition-all duration-300";
+        }
+      }
+
+      function updateNavbarColors() {
+        const root = document.documentElement;
+        const opacity = document.getElementById('input-nav-opacity') ? document.getElementById('input-nav-opacity').value : '0.85';
+        
+        const bgLightHex = document.getElementById('input-nav-bg-light') ? document.getElementById('input-nav-bg-light').value : '#FAF9F6';
+        const bgDarkHex = document.getElementById('input-nav-bg-dark') ? document.getElementById('input-nav-bg-dark').value : '#0B0B0C';
+        
+        const rgbaLight = hexToRgba(bgLightHex, opacity);
+        const rgbaDark = hexToRgba(bgDarkHex, opacity);
+        
+        root.style.setProperty('--gnt-nav-bg-light', rgbaLight);
+        root.style.setProperty('--gnt-nav-bg-dark', rgbaDark);
+        root.style.setProperty('--gnt-nav-opacity', opacity);
+        
+        localStorage.setItem('gnt-nav-bg-light-hex', bgLightHex);
+        localStorage.setItem('gnt-nav-bg-dark-hex', bgDarkHex);
+        localStorage.setItem('gnt-nav-opacity', opacity);
+      }
+
+      function hexToRgba(hex, opacity) {
+        let c;
+        if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
+          c= hex.substring(1).split('');
+          if(c.length== 3){
+            c= [c[0], c[0], c[1], c[1], c[2], c[2]];
+          }
+          c= '0x' + c.join('');
+          return 'rgba('+[(c>>16)&255, (c>>8)&255, c&255].join(',')+','+opacity+')';
+        }
+        return hex;
+      }
+
+      function updateSEOTitle(title) {
+        const seoTitle = document.getElementById('seo-title');
+        const ogTitle = document.getElementById('og-title');
+        const twitterTitle = document.getElementById('twitter-title');
+        if (seoTitle) seoTitle.textContent = title;
+        if (ogTitle) ogTitle.setAttribute('content', title);
+        if (twitterTitle) twitterTitle.setAttribute('content', title);
+      }
+
+      function updateSEODesc(desc) {
+        const seoDesc = document.getElementById('seo-description');
+        const ogDesc = document.getElementById('og-description');
+        const twitterDesc = document.getElementById('twitter-description');
+        if (seoDesc) seoDesc.setAttribute('content', desc);
+        if (ogDesc) ogDesc.setAttribute('content', desc);
+        if (twitterDesc) twitterDesc.setAttribute('content', desc);
+      }
+
+      function updateSocialMedia(platform, url) {
+        const container = document.getElementById('gnt-social-container');
+        const el = document.getElementById(`gnt-social-${platform}`);
+        if (el) {
+          if (url) {
+            el.setAttribute('href', url);
+            el.classList.remove('hidden');
+          } else {
+            el.classList.add('hidden');
+          }
+        }
+        
+        // Check container visibility
+        const instaUrl = localStorage.getItem('gnt-social-instagram') || (document.getElementById('input-social-instagram') ? document.getElementById('input-social-instagram').value.trim() : '');
+        const fbUrl = localStorage.getItem('gnt-social-facebook') || (document.getElementById('input-social-facebook') ? document.getElementById('input-social-facebook').value.trim() : '');
+        if (instaUrl || fbUrl) {
+          if (container) container.classList.remove('hidden');
+        } else {
+          if (container) container.classList.add('hidden');
+        }
+      }
+
+      // 8. Dynamic Google Font Injection
       function applyGoogleFont() {
         const fontName = document.getElementById('input-font-name').value.trim();
         if (!fontName) return;
@@ -922,7 +1589,7 @@
         root.style.setProperty('--gnt-font-family-fallback', fontName);
       }
 
-      // 8. Contact Booking & WhatsApp Formatting Logic
+      // 9. Contact Booking & WhatsApp Formatting Logic
       function handleFormSubmit(e) {
         e.preventDefault();
         const nombre = document.getElementById('input-nombre').value.trim();
@@ -952,7 +1619,7 @@
         window.open(finalUrl, '_blank');
       }
 
-      // 9. THE EXPORT ENGINE (Baking everything cleanly into the output html file)
+      // 10. THE EXPORT ENGINE (Baking everything cleanly into the output html file)
       function exportReadyHTML() {
         // Clone the document element to clean up and export
         const clone = document.documentElement.cloneNode(true);
@@ -981,15 +1648,134 @@
         });
 
         // 5. Gather CSS variables set in the active session and persist them in the cloned root tag
-        const currentStyleAttr = document.documentElement.getAttribute('style');
-        if (currentStyleAttr) {
-          clone.setAttribute('style', currentStyleAttr);
+        // Gather computed styles to bake into the exported document style sheet block
+        const style = getComputedStyle(document.documentElement);
+        const rootVars = [
+          '--gnt-font-family',
+          '--gnt-font-family-fallback',
+          '--gnt-bg-light',
+          '--gnt-bg-dark',
+          '--gnt-text-light',
+          '--gnt-text-dark',
+          '--gnt-card-bg-light',
+          '--gnt-card-bg-dark',
+          '--gnt-card-border-light',
+          '--gnt-card-border-dark',
+          '--gnt-muted-light',
+          '--gnt-muted-dark',
+          '--gnt-accent',
+          '--gnt-accent-hover',
+          '--gnt-accent-text',
+          '--gnt-bg-image',
+          '--gnt-bg-image-opacity',
+          '--gnt-promo-bg',
+          '--gnt-promo-text',
+          '--gnt-logo-height',
+          '--gnt-nav-bg-light',
+          '--gnt-nav-bg-dark',
+          '--gnt-nav-opacity'
+        ];
+
+        let styleStr = '\n      :root {\n';
+        rootVars.forEach(v => {
+          const val = style.getPropertyValue(v).trim();
+          if (val) {
+            styleStr += `        ${v}: ${val};\n`;
+          }
+        });
+        styleStr += '      }\n';
+
+        const customStyleSheet = clone.querySelector('#gnt-custom-variables');
+        if (customStyleSheet) {
+          // Replace :root block inside CSS stylesheet with the currently customized CSS variables
+          const originalCss = customStyleSheet.innerHTML;
+          const rootMatch = originalCss.match(/:root\s*\{[^}]*\}/);
+          if (rootMatch) {
+            customStyleSheet.innerHTML = originalCss.replace(rootMatch[0], styleStr.trim());
+          }
         }
 
-        // 6. Generate clean HTML output string
+        // 6. Hardcode dynamic HTML attributes in cloned elements
+        // Keep actual body dataset
+        const cloneBodyTag = clone.querySelector('body');
+        if (cloneBodyTag) {
+          cloneBodyTag.dataset.whatsappNumber = document.body.dataset.whatsappNumber || '+56972475938';
+          cloneBodyTag.dataset.whatsappTemplate = document.body.dataset.whatsappTemplate || '';
+        }
+
+        // Keep correct logo position classes in the wrapper
+        const currentWrapper = document.getElementById('gnt-nav-wrapper');
+        const cloneWrapper = clone.querySelector('#gnt-nav-wrapper');
+        if (currentWrapper && cloneWrapper) {
+          cloneWrapper.className = currentWrapper.className;
+        }
+
+        // Bake dynamic image base64 srcs
+        const imgMappings = {
+          'logo-claro-nav': 'logo-claro',
+          'logo-claro-footer': 'logo-claro',
+          'logo-oscuro-nav': 'logo-oscuro',
+          'logo-oscuro-footer': 'logo-oscuro'
+        };
+        Object.keys(imgMappings).forEach(elId => {
+          const currentImg = document.getElementById(elId);
+          const cloneImg = clone.querySelector(`#${elId}`);
+          if (currentImg && cloneImg) {
+            cloneImg.src = currentImg.src;
+          }
+        });
+
+        // Bake Favicon Link base64
+        const currentFav = document.getElementById('favicon-link');
+        const cloneFav = clone.querySelector('#favicon-link');
+        if (currentFav && cloneFav) {
+          cloneFav.setAttribute('href', currentFav.getAttribute('href'));
+        }
+
+        // Bake SEO Meta Tag contents
+        const seoKeys = {
+          'seo-title': 'text',
+          'seo-description': 'attr:content',
+          'og-title': 'attr:content',
+          'og-description': 'attr:content',
+          'og-image': 'attr:content',
+          'twitter-title': 'attr:content',
+          'twitter-description': 'attr:content',
+          'twitter-image': 'attr:content'
+        };
+        Object.keys(seoKeys).forEach(id => {
+          const currentEl = document.getElementById(id);
+          const cloneEl = clone.querySelector(`#${id}`);
+          if (currentEl && cloneEl) {
+            if (seoKeys[id] === 'text') {
+              cloneEl.textContent = currentEl.textContent;
+            } else {
+              const attrName = seoKeys[id].split(':')[1];
+              cloneEl.setAttribute(attrName, currentEl.getAttribute(attrName) || '');
+            }
+          }
+        });
+
+        // Bake Social Icons visibility and links
+        const currentSocialContainer = document.getElementById('gnt-social-container');
+        const cloneSocialContainer = clone.querySelector('#gnt-social-container');
+        if (currentSocialContainer && cloneSocialContainer) {
+          cloneSocialContainer.className = currentSocialContainer.className;
+          const platforms = ['instagram', 'facebook'];
+          platforms.forEach(p => {
+            const currentLink = document.getElementById(`gnt-social-${p}`);
+            const cloneLink = clone.querySelector(`#gnt-social-${p}`);
+            if (currentLink && cloneLink) {
+              cloneLink.className = currentLink.className;
+              cloneLink.setAttribute('href', currentLink.getAttribute('href') || '#');
+            }
+          });
+        }
+
+        // 7. Generate clean HTML output string
         const exportedHTML = '<!DOCTYPE html>\n' + clone.outerHTML;
 
-        // 7. Trigger the client-side download automatically
+        // 8. Trigger the client-side download automatically
         const blob = new Blob([exportedHTML], { type: 'text/html;charset=utf-8' });
         const downloadUrl = URL.createObjectURL(blob);
         const a = document.createElement('a');
