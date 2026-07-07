@@ -220,7 +220,13 @@
     </nav>
 
     <!-- 2. HERO SECTION (Impacto rápido) -->
-    <header class="relative z-10 pt-28 pb-20 md:pt-40 md:pb-32 px-6 max-w-7xl mx-auto w-full flex flex-col items-center justify-center text-center">
+    <header class="relative z-10 pt-20 pb-20 md:pt-28 md:pb-32 px-6 max-w-7xl mx-auto w-full flex flex-col items-center justify-center text-center">
+      <!-- Hero Brand Logo Group -->
+      <div class="mb-8 flex justify-center" id="gnt-hero-logo-container">
+        <img src="logo-claro.png" alt="GNT AUDIO Logo" id="logo-claro-hero" class="w-auto h-20 md:h-24 transition-all duration-300 transform hover:scale-[1.02] dark:hidden" />
+        <img src="logo-oscuro.png" alt="GNT AUDIO Logo" id="logo-oscuro-hero" class="w-auto h-20 md:h-24 transition-all duration-300 transform hover:scale-[1.02] hidden dark:block" />
+      </div>
+
       <!-- Location and Trust Badge -->
       <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gray-200/80 dark:border-neutral-800/80 bg-white/40 dark:bg-neutral-900/30 text-xs font-semibold tracking-wider uppercase text-neutral-500 dark:text-neutral-400 mb-8 transition-colors duration-300">
         <span class="w-2 h-2 rounded-full gnt-accent-bg animate-pulse"></span>
@@ -601,7 +607,6 @@
             <select id="input-logo-position" class="w-full px-3 py-2 text-xs rounded bg-neutral-900 border border-neutral-800 focus:outline-none focus:border-yellow-400 text-white cursor-pointer">
               <option value="left">Izquierda (Predeterminado)</option>
               <option value="center">Centro (Centrado)</option>
-              <option value="right">Derecha (Derecha)</option>
             </select>
           </div>
 
@@ -1264,13 +1269,17 @@
         if (id === 'logo-claro') {
           const navLogo = document.getElementById('logo-claro-nav');
           const footerLogo = document.getElementById('logo-claro-footer');
+          const heroLogo = document.getElementById('logo-claro-hero');
           if (navLogo) navLogo.src = base64;
           if (footerLogo) footerLogo.src = base64;
+          if (heroLogo) heroLogo.src = base64;
         } else if (id === 'logo-oscuro') {
           const navLogo = document.getElementById('logo-oscuro-nav');
           const footerLogo = document.getElementById('logo-oscuro-footer');
+          const heroLogo = document.getElementById('logo-oscuro-hero');
           if (navLogo) navLogo.src = base64;
           if (footerLogo) footerLogo.src = base64;
+          if (heroLogo) heroLogo.src = base64;
         } else if (id === 'bg-image') {
           document.documentElement.style.setProperty('--gnt-bg-image', `url('${base64}')`);
           const urlInput = document.getElementById('input-bg-image-url');
@@ -1307,13 +1316,17 @@
         if (id === 'logo-claro') {
           const navLogo = document.getElementById('logo-claro-nav');
           const footerLogo = document.getElementById('logo-claro-footer');
+          const heroLogo = document.getElementById('logo-claro-hero');
           if (navLogo) navLogo.src = 'logo-claro.png';
           if (footerLogo) footerLogo.src = 'logo-claro.png';
+          if (heroLogo) heroLogo.src = 'logo-claro.png';
         } else if (id === 'logo-oscuro') {
           const navLogo = document.getElementById('logo-oscuro-nav');
           const footerLogo = document.getElementById('logo-oscuro-footer');
+          const heroLogo = document.getElementById('logo-oscuro-hero');
           if (navLogo) navLogo.src = 'logo-oscuro.png';
           if (footerLogo) footerLogo.src = 'logo-oscuro.png';
+          if (heroLogo) heroLogo.src = 'logo-oscuro.png';
         } else if (id === 'bg-image') {
           document.documentElement.style.setProperty('--gnt-bg-image', 'none');
         } else if (id === 'seo-image') {
@@ -1715,8 +1728,10 @@
         const imgMappings = {
           'logo-claro-nav': 'logo-claro',
           'logo-claro-footer': 'logo-claro',
+          'logo-claro-hero': 'logo-claro',
           'logo-oscuro-nav': 'logo-oscuro',
-          'logo-oscuro-footer': 'logo-oscuro'
+          'logo-oscuro-footer': 'logo-oscuro',
+          'logo-oscuro-hero': 'logo-oscuro'
         };
         Object.keys(imgMappings).forEach(elId => {
           const currentImg = document.getElementById(elId);
